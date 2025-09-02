@@ -6,8 +6,5 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Install uv
-        uses: astral-sh/setup-uv@v6
-        with:
-          version: "0.7.8"
+      - uses: ./.github/actions/setup
       - run: uv lock --locked
