@@ -109,6 +109,14 @@ where = ["src"]
 # Mapeia o diretório raiz de pacotes para 'src'.
 package-dir = { "" = "src" }
 
+[tool.coverage.run]
+source = ["src"]
+
+[tool.coverage.report]
+omit = [
+    "tests/*",
+]
+
 [dependency-groups]
 dev = [
     "pytest>=8.4.1",
