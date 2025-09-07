@@ -106,6 +106,7 @@ exclude = [
 venv = ".venv"
 venvPath = "."
 executionEnvironments = [{ root = "src" }]
+extraPaths = ["src"]
 
 # ============================
 # Testes (Pytest)
