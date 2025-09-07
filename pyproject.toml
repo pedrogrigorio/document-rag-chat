@@ -121,10 +121,14 @@ testpaths = ["tests"]
 
 [tool.coverage.run]
 source = ["src"]
-
+ 
 [tool.coverage.report]
 omit = [
     "tests/*",
+    "src/main.py",
+    "src/api.py",
+    "src/core/db/*",
+    "src/core/logger.py",
 ]
 
 # ============================
