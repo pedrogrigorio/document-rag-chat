@@ -17,6 +17,7 @@ dev = ["ruff", "pyright", "pytest", "pytest-xdist"]
 
 [dependency-groups]
 dev = [
+    "pytest-cov>=6.3.0",
     "taskipy>=1.14.1",
 ]
 
