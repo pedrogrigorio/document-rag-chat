@@ -1,20 +1,22 @@
+from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 
-# cria a aplicação FastAPI
-app = FastAPI()
+from api import register_routes
+from core.db.mongo import init_db
+from core.logger import configure_logging
 
 
-def soma(a: int, b: int) -> int:
-    return a + b
+@asynccontextmanager
+async def lifespan(app: FastAPI) -> AsyncIterator[None]:
+    await init_db()
+    yield
 
 
-# rota raiz
-@app.get("/")
-def read_root() -> object:
-    return {"message": "Hello, World!"}
+# debug, info, warning, error, critical
+configure_logging("info")
 
+app = FastAPI(lifespan=lifespan)
 
-# rota com parâmetro
-@app.get("/hello/{name}")
-def read_item(name: str) -> object:
-    return {"message": f"Hello, {name}!"}
+register_routes(app)

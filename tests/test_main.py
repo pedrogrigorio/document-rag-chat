@@ -1,4 +1,4 @@
-from src.main import soma
+from modules.users.service import soma
 
 
 def test_soma():
