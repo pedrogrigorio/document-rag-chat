@@ -7,3 +7,6 @@ runs:
       uses: astral-sh/setup-uv@v3
       with:
         version: "0.7.8"
+        
+    - name: sync dev dependencies
+      run: uv sync --extra dev
