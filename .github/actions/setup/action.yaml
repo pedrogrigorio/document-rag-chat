@@ -9,4 +9,5 @@ runs:
         version: "0.7.8"
 
     - name: sync dev dependencies
-      uses: uv sync --extra dev
+      shell: bash
+      run: uv sync --extra dev
